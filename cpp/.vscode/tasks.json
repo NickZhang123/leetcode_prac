@@ -1,0 +1,29 @@
+{
+    "tasks": [
+      {
+        "type": "cppbuild", 	// 默认是shell
+        "label": "build",   	// 编译
+          
+//        "command": "D:/MinGW/bin/g++.exe", // windows g++地址
+        "command": "/usr/bin/g++",		   // linux g++地址
+          
+        "args": [
+            "-g", 
+            "${file}", 
+            "-o", 
+            "${fileDirname}\\${fileBasenameNoExtension}.exe"],  // 参数
+          
+        "options": {
+          "cwd": "${fileDirname}"
+        },
+        "problemMatcher": ["$gcc"],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+          
+        "detail": "编译"
+      }
+    ],
+    "version": "2.0.0"
+}
