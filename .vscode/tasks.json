@@ -1,30 +1,53 @@
 {
     "tasks": [
-      {
-        "type": "cppbuild", 	// 默认是shell
-        "label": "cpp编译",   	// 编译
-          
-//        "command": "D:/MinGW/bin/g++.exe", // windows g++地址
-        "command": "/usr/bin/g++",		   // linux g++地址
-          
-        "args": [
-            "-g", 
-            "${file}", 
-            "-std=c++11",
-            "-o", 
-            "${fileDirname}/${fileBasenameNoExtension}"],  // 参数
-          
-        "options": {
-          "cwd": "${fileDirname}"
+        {
+          "label": "01_cpp编译_simple",   	// 编译
+          "type": "cppbuild", 	// 默认是shell
+
+          "command": "/usr/bin/g++",		   // linux g++地址  
+          "args": [
+              "-g", 
+              "${file}", 
+              "-std=c++11",
+              "-o", 
+              "${fileDirname}/out/${fileBasenameNoExtension}"],  // 参数
+            
+          "options": {
+            "cwd": "${fileDirname}"
+          },
+          "problemMatcher": ["$gcc"],
+          "group": {
+            "kind": "build",
+            "isDefault": true
+          },
+            
+          "detail": "编译"
         },
-        "problemMatcher": ["$gcc"],
-        "group": {
-          "kind": "build",
-          "isDefault": true
-        },
-          
-        "detail": "编译"
-      }
+
+        {
+          "label": "02_cpp编译_多文件",
+          "type": "cppbuild", 
+          "command": "/usr/bin/g++",
+          "args": [
+              "-g", 
+              "${file}", "${workspaceFolder}/cpp/tools/*.cpp",        // 编译所有cpp
+              "-std=c++11",
+              "-I", // 指定include
+              "${workspaceFolder}/cpp/tools/",    
+              "-o", // 输出对象
+              "${fileDirname}/out/${fileBasenameNoExtension}"],
+            
+          "options": {
+            "cwd": "${fileDirname}"
+          },
+          "problemMatcher": ["$gcc"],
+          "group": {
+            "kind": "build",
+            "isDefault": true
+          },
+            
+          "detail": "编译"
+        }
     ],
     "version": "2.0.0"
 }

@@ -10,10 +10,9 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "cpp gdb 调试",
+            "name": "01_gdb调试_simple",
             "type": "cppdbg",
             "request": "launch",
-            //"program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
             "program": "${fileDirname}\\${fileBasenameNoExtension}",
             "args": [],
             "stopAtEntry": false,
@@ -29,7 +28,8 @@
                 "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "cpp编译"   // 指定编译任务
+
+            "preLaunchTask": "01_cpp编译_simple"   // 调试前，指定编译任务
         }
     ]
 }
