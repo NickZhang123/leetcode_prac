@@ -97,7 +97,7 @@ vector<int> findAnagrams(string s, string p) {
     int diff = 0;
     while (j < s.length()) {
         if (j - i >= tgt_len) {
-            cout << "1. " << i << j << count << endl;
+            //cout << "1. " << i << j << count << endl;
             if (count == tgt_len) {
                 vec3.emplace_back(i);
             }
@@ -110,7 +110,7 @@ vector<int> findAnagrams(string s, string p) {
             i++;
         }
 
-        cout << "2. " << i << j << count << endl;
+        //cout << "2. " << i << j << count << endl;
         diff = s[j] - 'a';
         /*
         if (vec[diff] <= 0) {
@@ -121,7 +121,7 @@ vector<int> findAnagrams(string s, string p) {
         }
         */
         
-        cout << "3. " << i << j << count << endl;
+        //cout << "3. " << i << j << count << endl;
         if (vec[diff] > 0 && vec2[diff] < vec[diff]) {    
             count++;
         }
