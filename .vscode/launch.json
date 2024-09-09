@@ -13,14 +13,14 @@
             "name": "01_gdb调试_simple",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${fileDirname}\\${fileBasenameNoExtension}",
+            "program": "${workspaceFolder}/cpp/out/finalobj",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],
             "externalConsole": false,
             "MIMode": "gdb",
-            "miDebuggerPath": "/usr/bin/gdb",  // gdb位置
+            "miDebuggerPath": "/usr/bin/gdb", 
             "setupCommands": [
                 {
                 "description": "Enable pretty-printing for gdb",
@@ -29,7 +29,7 @@
                 }
             ],
 
-            "preLaunchTask": "01_cpp编译_simple"   // 调试前，指定编译任务
+            //"preLaunchTask": "01_cpp编译_simple"   // 调试前，指定编译任务
         }
     ]
 }

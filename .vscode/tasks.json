@@ -1,10 +1,10 @@
 {
     "tasks": [
         {
-          "label": "01_cpp编译_simple",   	// 编译
-          "type": "cppbuild", 	// 默认是shell
+          "label": "01_cpp编译_simple",    
+          "type": "cppbuild",               
 
-          "command": "/usr/bin/g++",		   // linux g++地址  
+          "command": "/usr/bin/g++",           // linux g++地址  
           "args": [
               "-g", 
               "${file}", 
@@ -27,19 +27,21 @@
         {
           "label": "02_cpp编译_多文件",
           "type": "cppbuild", 
-          "command": "/usr/bin/g++",
+          "command": "/usr/local/gcc10/bin/g++",
           "args": [
               "-g", 
-              "${file}", "${workspaceFolder}/cpp/tools/*.cpp",        // 编译所有cpp
-              "-std=c++11",
-              "-I", // 指定include
-              "${workspaceFolder}/cpp/tools/",    
-              "-o", // 输出对象
-              "${fileDirname}/out/${fileBasenameNoExtension}"],
+              "${workspaceFolder}/cpp/*.cpp",               // 编译指定文件(不能递归)
+              "${workspaceFolder}/cpp/tools/*.cpp",         // 编译指定文件(不能递归)
+              "-std=c++17",
+              //"-I", 
+              //"${workspaceFolder}/cpp/tools/",    
+              "-o", 
+              "${workspaceFolder}/cpp/out/finalobj"],
             
           "options": {
             "cwd": "${fileDirname}"
           },
+
           "problemMatcher": ["$gcc"],
           "group": {
             "kind": "build",
@@ -47,6 +49,22 @@
           },
             
           "detail": "编译"
+        },
+        
+        {
+            "label": "03_cpp_编译运行多文件",
+            "type": "shell",                
+  
+            "command": "./cpp/out/finalobj",      
+            "args": [ ],  
+
+            "group": {
+              "kind": "build",
+              "isDefault": true
+            },
+              
+            "detail": "运行可执行程序",
+            "dependsOn": "02_cpp编译_多文件"        // 执行前依赖指定task
         }
     ],
     "version": "2.0.0"

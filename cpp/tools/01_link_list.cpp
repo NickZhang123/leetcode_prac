@@ -4,8 +4,8 @@
 
 
 
-void func()
+void func_test()
 {
-    std::cout << "func"  << std::endl;
+    std::cout << "func_test"  << std::endl;
     return;
 }

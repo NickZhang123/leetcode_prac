@@ -10,6 +10,6 @@ struct ListNode {
     ListNode(int x, ListNode *p_next) : val(x), p_next(p_next) {}
 };
 
-void func();
+void func_test();
 
 
